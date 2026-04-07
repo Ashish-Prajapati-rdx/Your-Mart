@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { useParams } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import "./Product.css";
 
 const Product = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
+
   const [product, setProduct] = useState({});
 
   useEffect(() => {
@@ -19,7 +20,6 @@ const Product = () => {
     fetchProduct();
   }, [id]);
 
-  const navigate = useNavigate();
   const addToCartHandler = () => {
     const cart = JSON.parse(localStorage.getItem("cart")) || [];
 
@@ -28,20 +28,35 @@ const Product = () => {
     if (exist) {
       exist.qty += 1;
     } else {
-      cart.push({ ...product, qty: 1 });
+      cart.push({
+        _id: product._id,
+        name: product.name,
+        price: product.price,
+        qty: 1,
+      });
     }
 
     localStorage.setItem("cart", JSON.stringify(cart));
 
     navigate("/cart");
   };
-  <button onClick={addToCartHandler}>Add to Cart</button>;
 
+  /*
   return (
     <div className="product-detail">
       <h2>{product.name}</h2>
       <p>{product.description}</p>
       <h3>₹{product.price}</h3>
+
+      //  BUTTON 
+      <button onClick={addToCartHandler}>Add to Cart</button>
+    </div>
+  );
+  */
+  return (
+    <div>
+      <h1>TEST PAGE</h1>
+      <button>Add to Cart</button>
     </div>
   );
 };
