@@ -6,6 +6,7 @@ import Dashboard from "./pages/Dashboard";
 import Navbar from "./components/Navbar";
 import Product from "./pages/Product";
 import Cart from "./pages/Cart";
+import Checkout from "./pages/Checkout";
 
 function App() {
   return (
@@ -19,10 +20,10 @@ function App() {
         <Route path="/product/:id" element={<Product />} />
         <Route path="/cart/:id" element={<Cart />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/checkout" element={<Checkout />} />
       </Routes>
     </BrowserRouter>
   );
 }
 
 export default App;
-

@@ -5,7 +5,6 @@ import { useNavigate } from "react-router-dom";
 import "./Login.css";
 import "./Register.css";
 
-
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -30,6 +29,12 @@ const Login = () => {
           password,
         },
       );
+
+      // const resp = await fetch("http://localhost:5000/api/auth/login", {
+      //   method: "POST",
+      // });
+
+      // const data = await resp.json();
 
       localStorage.setItem("userInfo", JSON.stringify(data));
 

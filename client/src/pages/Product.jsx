@@ -41,24 +41,18 @@ const Product = () => {
     navigate("/cart");
   };
 
-  /*
+  
+  
   return (
     <div className="product-detail">
       <h2>{product.name}</h2>
       <p>{product.description}</p>
       <h3>₹{product.price}</h3>
-
-      //  BUTTON 
+      // BUTTON
       <button onClick={addToCartHandler}>Add to Cart</button>
     </div>
   );
-  */
-  return (
-    <div>
-      <h1>TEST PAGE</h1>
-      <button>Add to Cart</button>
-    </div>
-  );
 };
+
 
 export default Product;

@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import "./Home.css";
+import { Link } from "react-router-dom";
+
 import ProductCard from "../components/ProductCard";
 
 const Home = () => {
@@ -26,8 +28,10 @@ const Home = () => {
       <div className="product-grid">
         {products.map((product) => (
           <div className="product-card" key={product._id}>
-            <h3>{product.name}</h3>
-            <p>₹{product.price}</p>
+            <Link to={`/product/${product._id}`}>
+              <h3>{product.name}</h3>
+              <p>₹{product.price}</p>
+            </Link>
           </div>
         ))}
       </div>

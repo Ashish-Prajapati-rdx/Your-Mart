@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Cart = () => {
   const [cartItems, setCartItems] = useState([]);
@@ -31,10 +32,11 @@ const Cart = () => {
     0,
   );
 
+  const navigate = useNavigate();
+
   return (
     <div style={{ padding: "20px" }}>
       <h2>Your Cart 🛒</h2>
-
       {cartItems.length === 0 ? (
         <p>Cart is empty</p>
       ) : (
@@ -70,6 +72,8 @@ const Cart = () => {
           <h3>Total: ₹{totalPrice}</h3>
         </>
       )}
+      // checkout
+      <button onClick={() => navigate("/checkout")}>Proceed to Checkout</button>
     </div>
   );
 };
