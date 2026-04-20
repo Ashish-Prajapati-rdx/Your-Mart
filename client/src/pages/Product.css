@@ -5,3 +5,26 @@
   border: none;
   cursor: pointer;
 }
+
+.product-detail {
+  display: flex;
+  gap: 30px;
+  padding: 30px;
+}
+
+.product-detail img {
+  width: 300px;
+  border-radius: 10px;
+}
+
+.product-detail h2 {
+  margin-bottom: 10px;
+}
+
+.product-detail button {
+  padding: 10px 20px;
+  background: #ff9900;
+  border: none;
+  cursor: pointer;
+  margin-top: 10px;
+}

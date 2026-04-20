@@ -29,6 +29,7 @@ const Home = () => {
         {products.map((product) => (
           <div className="product-card" key={product._id}>
             <Link to={`/product/${product._id}`}>
+              {product.image && <img src={product.image} alt={product.name} />}
               <h3>{product.name}</h3>
               <p>₹{product.price}</p>
             </Link>
