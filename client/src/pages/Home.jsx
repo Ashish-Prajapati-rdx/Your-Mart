@@ -7,37 +7,41 @@ import ProductCard from "../components/ProductCard";
 
 const Home = () => {
   const [products, setProducts] = useState([]);
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
     const fetchProducts = async () => {
-      try {
-        const { data } = await axios.get("http://127.0.0.1:5000/api/products");
-        setProducts(data);
-      } catch (error) {
-        console.log(error);
-      }
+      const { data } = await axios.get("http://127.0.0.1:5000/api/products");
+      setProducts(data);
     };
 
     fetchProducts();
   }, []);
 
-  return (
-    <div className="home-container">
-      <h2>Products</h2>
+  const filteredProducts = products.filter((product) =>
+    (product.name + product.description)
+      .toLowerCase()
+      .includes(search.toLowerCase())
+  );
 
-      <div className="product-grid">
-        {products.map((product) => (
-          <div className="product-card" key={product._id}>
-            <Link to={`/product/${product._id}`}>
-              {product.image && <img src={product.image} alt={product.name} />}
-              <h3>{product.name}</h3>
-              <p>₹{product.price}</p>
-            </Link>
-          </div>
-        ))}
-      </div>
+  return (
+    <div>
+      <input
+        type="text"
+        placeholder="Search..."
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
+      />
+
+      
+      {filteredProducts.map((product) => (
+        <div key={product._id}>
+          <h3>{product.name}</h3>
+          <p>{product.description}</p>
+          <p>₹{product.price}</p>
+        </div>
+      ))}
     </div>
   );
 };
-
 export default Home;

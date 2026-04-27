@@ -17,6 +17,14 @@ const Navbar = () => {
         Your-Mart
       </h2>
 
+      <input
+        type="text"
+        placeholder="Search products..."
+        // value={search}
+        // onChange={(e) => setSearch(e.target.value)}
+       className="search-box"
+      />
+
       {/* Links */}
       <div className="nav-links">
         <Link to="/">Home</Link>
